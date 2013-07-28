@@ -2,14 +2,13 @@ package gradebook.model;
 
 import java.util.ArrayList;
 
-public class Student {
+public class Student implements Storable{
     private String name;
-    private ArrayList<GradebookItem> gradebook;
+    private GradebookDB<GradebookItem> gradebook;
     private GradingScheme scheme;
 
     public Student(final String name) {
         this.name = name;
-        gradebook = new ArrayList<GradebookItem>();
     }
 
     public int reportScore() {
@@ -22,6 +21,11 @@ public class Student {
 
     public boolean equals(Student that)
     {
-        return name.equals(that.name)
+        return name.equals(that.name);
+    }
+
+    public String getId()
+    {
+        return name;
     } 
 }

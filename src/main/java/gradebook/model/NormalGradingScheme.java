@@ -1,6 +1,8 @@
-public class NormalGradingScheme implements GradingScheme()
+package gradebook.model;
+
+public class NormalGradingScheme implements GradingScheme
 {
-    public char calculateLetterGrade(ArrayList<GradebookItem> gradebook)
+    public char calculateLetterGrade(GradebookDB<GradebookItem> gradebook)
     {
         int score = calculateScore(gradebook);
         
@@ -26,7 +28,7 @@ public class NormalGradingScheme implements GradingScheme()
         }
     }
     
-    public int calculateScore(ArrayList<GradebookItem> gradebook)
+    public int calculateScore(GradebookDB<GradebookItem> gradebook)
     {
          
     }

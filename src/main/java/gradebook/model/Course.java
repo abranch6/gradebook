@@ -1,6 +1,6 @@
 package gradebook.model;
 
-public class Course
+public class Course implements Storable
 {
     String subject;
     String name;
@@ -18,5 +18,10 @@ public class Course
     public boolean equals(Course that)
     {
         return subject.equals(that.subject) && number == that.number && name.equals(that.name);
+    }
+
+    public String getId()
+    {
+        return name;
     }
 }

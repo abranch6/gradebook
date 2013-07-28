@@ -4,6 +4,6 @@ import java.util.ArrayList;
 
 public interface GradingScheme
 {
-    char calculateLetterGrade(ArrayList<GradebookItem> gradebook);
-    int calculateScore(ArrayList<GradebookItem> gradebook);
+    char calculateLetterGrade(GradebookDB<GradebookItem> gradebook);
+    int calculateScore(GradebookDB<GradebookItem> gradebook);
 }

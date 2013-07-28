@@ -1,26 +1,27 @@
 package gradebook.model;
 
-public class Section {
-    private Student[] students;
-
-    public Section(final Student[] students) {
+public class Section implements Storable{
+    
+    private GradebookDB students;
+    
+    public Section(GradebookDB<Student> students) {
         this.students = students;
     }
 
     public final int reportAverageScore() {
         int average = 0;
  
-        for (int i = 0; i < students.length; i++) {
+        for (int i = 0; i < students.size(); i++) {
             average += students[i].reportScore();
         }
 
-        average /= students.length;
+        average /= students.size();
         return average;
     }
      
     public final char reportAverageLetterGrade() {
         int average = 0;
-        for (int i = 0; i < students.length; i++) {
+        for (int i = 0; i < students.size(); i++) {
             char studentLetterGrade = ' ';
             studentLetterGrade += students[i].reportLetterGrade();
 
@@ -30,11 +31,16 @@ public class Section {
             average = studentLetterGrade;
         }
 
-        average /= students.length;
+        average /= students.size();
         if (average == 'E') {
             average++;
         }
 
         return (char) average;
+    }
+    
+    public String getId()
+    {
+        return "";
     }
 }

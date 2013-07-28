@@ -10,7 +10,7 @@ public class GradebookCategory {
     }
 
     public boolean equals(GradebookCategory that) {
-        return name.equals(that.name); && weight == that.weight;
+        return name.equals(that.name) && weight == that.weight;
 
     }
     
