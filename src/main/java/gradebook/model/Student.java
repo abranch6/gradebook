@@ -9,14 +9,21 @@ public class Student implements Storable{
 
     public Student(final String name) {
         this.name = name;
+        scheme = new NormalGradingScheme();
+        gradebook = new ArrayListDB<GradebookItem>(); 
     }
-
+    
     public int reportScore() {
         return scheme.calculateScore(gradebook);
     }
 
     public char reportLetterGrade() {
         return scheme.calculateLetterGrade(gradebook);
+    }
+
+    public void addGradebookItem(GradebookItem item)
+    {
+            gradebook.put(item);
     }
 
     public boolean equals(Student that)

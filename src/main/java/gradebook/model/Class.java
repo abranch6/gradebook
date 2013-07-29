@@ -14,7 +14,7 @@ public class Class implements Storable{
 
         for(int i = 0; i < sections.size(); i++)
         {
-            average += sections[i].reportAverageScore();
+//            average += sections[i].reportAverageScore();
         }
 
         average /= sections.size();
@@ -25,7 +25,7 @@ public class Class implements Storable{
         int average = 0;
         for(int i = 0; i < sections.size(); i++) {
             char sectionLetterGrade = ' ';
-            sectionLetterGrade += sections[i].reportAverageLetterGrade();
+  //          sectionLetterGrade += sections[i].reportAverageLetterGrade();
 
             if(sectionLetterGrade == 'F') {
                 sectionLetterGrade--;

@@ -8,6 +8,11 @@ public class GradebookCategory {
         this.name = name;
         this.weight = weight;
     }
+    
+    public double getWeight()
+    {
+        return weight;
+    }
 
     public boolean equals(GradebookCategory that) {
         return name.equals(that.name) && weight == that.weight;

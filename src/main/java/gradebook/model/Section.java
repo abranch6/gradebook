@@ -10,9 +10,9 @@ public class Section implements Storable{
 
     public final int reportAverageScore() {
         int average = 0;
- 
+         
         for (int i = 0; i < students.size(); i++) {
-            average += students[i].reportScore();
+ //           average += students[i].reportScore();
         }
 
         average /= students.size();
@@ -23,7 +23,7 @@ public class Section implements Storable{
         int average = 0;
         for (int i = 0; i < students.size(); i++) {
             char studentLetterGrade = ' ';
-            studentLetterGrade += students[i].reportLetterGrade();
+  //          studentLetterGrade += students[i].reportLetterGrade();
 
             if (studentLetterGrade == 'F') {
                 studentLetterGrade--;
