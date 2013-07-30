@@ -1,49 +1,62 @@
 package gradebook.model;
 
-public class Class implements Storable{
-    Course course;
-    GradebookDB<Section> sections;
-        
+/**
+* Represents a Class of a Course which stores Sections
+* @author Andrew Branch
+*/
+public class Class implements Storable {
+    private Course course;
+    private GradebookDB<Section> sections;
+
+    public Class(Course course) {
+        this(course, new ArrayListDB<Section>());
+    }
+
     public Class(Course course, GradebookDB<Section> sections) {
         this.course = course;
         this.sections = sections;
     }
- 
+
     public int reportAverageScore() {
         int average = 0;
+        Section[] allSections = sections.toArray(new Section[1]);
 
-        for(int i = 0; i < sections.size(); i++)
-        {
-//            average += sections[i].reportAverageScore();
+        for (int i = 0; i < allSections.length; i++) {
+            average += allSections[i].reportAverageScore();
         }
 
-        average /= sections.size();
+        average /= allSections.length;
         return average;
     }
 
     public char reportLetterGrade() {
         int average = 0;
-        for(int i = 0; i < sections.size(); i++) {
-            char sectionLetterGrade = ' ';
-  //          sectionLetterGrade += sections[i].reportAverageLetterGrade();
+        char sectionLetterGrade = 0;
+        Section[] allSections = sections.toArray(new Section[1]);
 
-            if(sectionLetterGrade == 'F') {
+        for (int i = 0; i < allSections.length; i++) {
+            sectionLetterGrade = allSections[i].reportAverageLetterGrade();
+
+            if (sectionLetterGrade == 'F') {
                 sectionLetterGrade--;
             }
-            average = sectionLetterGrade;
+            average += sectionLetterGrade;
         }
 
-        average /= sections.size();
-        if(average == 68) {
+        average /= allSections.length;
+        if (average == 'E') {
             average++;
         }
 
-        return (char)average;
+        return (char) average;
 
     }
 
-    public String getId()
-    {
+    public void addSection(Section section) {
+        sections.put(section);
+    }
+
+    public String getId() {
         return "";
     }
 }

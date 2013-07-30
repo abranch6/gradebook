@@ -6,11 +6,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
-public class ArrayListDBTest
-{
+public class ArrayListDBTest {
     @Test
-    public void testPutandGet()
-    {
+    public void testPutandGet() {
         Student student = new Student("John Doe");
         GradebookDB<Student> list = new ArrayListDB<Student>();
         list.put(student);
@@ -19,8 +17,7 @@ public class ArrayListDBTest
     }
 
     @Test
-    public void testDelete()
-    {
+    public void testDelete() {
         Student student = new Student("John Doe");
         GradebookDB<Student> list = new ArrayListDB<Student>();
         list.put(student);
@@ -34,8 +31,7 @@ public class ArrayListDBTest
     }
 
     @Test
-    public void testToArray()
-    {
+    public void testToArray() {
         Student student1 = new Student("John Doe");
         Student student2 = new Student("Andrew Branch");
         Student student3 = new Student("Jane Doe");

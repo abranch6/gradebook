@@ -8,7 +8,6 @@ public class NormalGradingScheme implements GradingScheme
     public char calculateLetterGrade(GradebookDB<GradebookItem> gradebook)
     {
         int score = calculateScore(gradebook);
-        
         if(score >= 90)
         {
             return 'A';
@@ -33,17 +32,16 @@ public class NormalGradingScheme implements GradingScheme
     
     public int calculateScore(GradebookDB<GradebookItem> gradebook)
     {
-        GradebookItem[] items = gradebook.toArray();
+        GradebookItem[] items = gradebook.toArray(new GradebookItem[1]);
         HashMap<GradebookCategory, Integer> itemMap = new HashMap<GradebookCategory, Integer>();
         HashMap<GradebookCategory, Integer> amountMap = new HashMap<GradebookCategory, Integer>();
         int total = 0;
-
         for(int i = 0; i < items.length; i++)
         {
             GradebookCategory currentCategory = items[i].getCategory();
             Integer currentValue = itemMap.get(currentCategory);
             Integer amountValue = amountMap.get(currentCategory);
-            if(currentValue != null)
+            if(currentValue == null)
             {
                 itemMap.put(currentCategory, items[i].getScore());
                 amountMap.put(currentCategory, 1);
@@ -54,8 +52,7 @@ public class NormalGradingScheme implements GradingScheme
                 amountMap.put(currentCategory, amountValue + 1); 
             }
         }
-        GradebookCategory[] categories = null;
-        categories = itemMap.keySet().toArray(categories);
+        GradebookCategory[] categories = itemMap.keySet().toArray(new GradebookCategory[1]);
         
         for(int i = 0; i < categories.length; i++)
         {
