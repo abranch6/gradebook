@@ -1,9 +1,10 @@
 package gradebook.model;
 
-import java.util.ArrayList;
-
-public interface GradingScheme
-{
+/**
+* Defines how to create a grading scheme
+* @author Andrew Branch
+*/
+public interface GradingScheme {
     char calculateLetterGrade(GradebookDB<GradebookItem> gradebook);
     int calculateScore(GradebookDB<GradebookItem> gradebook);
 }

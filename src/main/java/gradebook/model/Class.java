@@ -5,6 +5,7 @@ package gradebook.model;
 * @author Andrew Branch
 */
 public class Class implements Storable {
+
     private Course course;
     private GradebookDB<Section> sections;
 

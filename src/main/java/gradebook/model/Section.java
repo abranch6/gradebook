@@ -1,11 +1,14 @@
 package gradebook.model;
 
-public class Section implements Storable{
-    
+/**
+* A section of a class that is contained in a class
+* @author Andrew Branch
+*/
+public class Section implements Storable {
+
     private GradebookDB<Student> students;
-    
-    public Section()
-    {
+
+    public Section() {
         this(new ArrayListDB<Student>());
     }
 
@@ -24,7 +27,7 @@ public class Section implements Storable{
         average /= allStudents.length;
         return average;
     }
-     
+
     public final char reportAverageLetterGrade() {
         int average = 0;
         Student[] allStudents = students.toArray(new Student[1]);
@@ -35,6 +38,7 @@ public class Section implements Storable{
             if (studentLetterGrade == 'F') {
                 studentLetterGrade--;
             }
+
             average += studentLetterGrade;
         }
 
@@ -45,19 +49,16 @@ public class Section implements Storable{
 
         return (char) average;
     }
-  
-    public void getStudent(String student)
-    {
-        students.get(student);  
+
+    public void getStudent(String student) {
+        students.get(student);
     }
- 
-    public void addStudent(Student student)
-    {
+
+    public void addStudent(Student student) {
         students.put(student);
     }
- 
-    public String getId()
-    {
+
+    public String getId() {
         return "";
     }
 }

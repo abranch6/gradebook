@@ -1,6 +1,9 @@
 package gradebook.model;
 
-public interface Storable
-{
+/**
+* Allows an object to be stored and retrived from a gradebookDB
+* @author Andrew Branch
+*/
+public interface Storable {
     String getId();
 }

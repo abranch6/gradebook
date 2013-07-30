@@ -4,7 +4,7 @@ package gradebook.model;
 *
 * @author Andrew Branch
 */
-public class GradebookItem implements Storable{
+public class GradebookItem implements Storable {
     private String name;
     private GradebookCategory category;
     private int score;
@@ -15,23 +15,23 @@ public class GradebookItem implements Storable{
         this.score = score;
     }
 
-    public GradebookCategory getCategory()
-    {
+    public GradebookCategory getCategory() {
         return category;
     }
 
-    public int getScore()
-    {
+    public int getScore() {
         return score;
     }
 
-    public boolean equals(GradebookItem that)
-    {
+    public boolean equals(GradebookItem that) {
         return name.equals(that.name) && category.equals(that.category);
     }
 
-    public String getId()
-    {
+    public int hashCode() {
+        return name.hashCode();
+    }
+
+    public String getId() {
         return name;
     }
 }
