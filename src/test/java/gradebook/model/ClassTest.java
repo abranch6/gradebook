@@ -16,7 +16,7 @@ public class ClassTest
         Section section1 = new Section();
         Section section2 = new Section();
         Section section3 = new Section();
-        Class testClass = new Class(new Course("CS", "Test", 1111));
+        Class testClass = new Class();
         
         GradebookCategory tests = new GradebookCategory("Tests", 0.6);
         GradebookCategory homework = new GradebookCategory("Homework", 0.4);
@@ -50,7 +50,7 @@ public class ClassTest
         testClass.addSection(section2);
         testClass.addSection(section3);
  
-        assertEquals((int)(((70 * 0.6 + 75 * 0.4) + (80 * 0.6 + 90 * 0.4) + 100) / 3), testClass.reportAverageScore()); 
+        assertEquals((int)(((70 * 0.6 + 75 * 0.4) + (80 * 0.6 + 90 * 0.4) + 100) / 3), testClass.reportScore()); 
     }
 
     @Test
@@ -59,7 +59,7 @@ public class ClassTest
         Section section1 = new Section();
         Section section2 = new Section();
         Section section3 = new Section();
-        Class testClass = new Class(new Course("CS", "Test", 1111));
+        Class testClass = new Class();
 
         GradebookCategory tests = new GradebookCategory("Tests", 0.6);
         GradebookCategory homework = new GradebookCategory("Homework", 0.4);

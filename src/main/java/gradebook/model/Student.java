@@ -4,7 +4,7 @@ package gradebook.model;
 * A student that can hold gradebook items and calculate grades
 * @author Andrew Branch
 */
-public class Student implements Storable {
+public class Student extends Gradable implements Storable {
     private String name;
     private GradebookDB<GradebookItem> gradebook;
     private GradingScheme scheme;
@@ -27,8 +27,13 @@ public class Student implements Storable {
         return scheme.calculateLetterGrade(gradebook);
     }
 
+    protected Gradable[] getGrades()
+    {
+        return null;
+    }
+
     public void addGradebookItem(GradebookItem item) {
-            gradebook.put(item);
+        gradebook.put(item);
     }
 
     public void removeGradebookItem(String id) {

@@ -4,7 +4,7 @@ package gradebook.model;
 * A Course that is offered
 * @author Andrew Branch
 */
-public class Course implements Storable {
+public class Course extends Gradable implements Storable {
     private String subject;
     private String name;
     private int number;
@@ -19,39 +19,9 @@ public class Course implements Storable {
         classes = new ArrayListDB<Class>();
     }
 
-    public int reportAverageScore() {
-        int average = 0;
-        Class[] allClasses = classes.toArray(new Class[1]);
-
-        for (int i = 0; i < allSections.length; i++) {
-            average += allClasses[i].reportAverageScore();
-        }
-
-        average /= allClasses.length;
-        return average;
-    }
-
-    public char reportLetterGrade() {
-        int average = 0;
-        char sectionLetterGrade = 0;
-        Class[] allClasses = classes.toArray(new Section[1]);
-
-        for (int i = 0; i < allClasses.length; i++) {
-            sectionLetterGrade = allClasses[i].reportAverageLetterGrade();
-
-            if (sectionLetterGrade == 'F') {
-                sectionLetterGrade--;
-            }
-            average += sectionLetterGrade;
-        }
-
-        average /= allClasses.length;
-        if (average == 'E') {
-            average++;
-        }
-
-        return (char) average;
-
+    protected Gradable[] getGrades()
+    {
+        return classes.toArray(new Class[1]);
     }
     
     public boolean equals(Course that) {
@@ -59,6 +29,11 @@ public class Course implements Storable {
         boolean numberEquals = number == that.number;
 
         return  subjectEquals && numberEquals && name.equals(that.name);
+    }
+    
+    public void addClass(Class newClass)
+    {
+        classes.put(newClass);
     }
 
     public int hashCode() {

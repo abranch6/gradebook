@@ -4,7 +4,7 @@ package gradebook.model;
 * A section of a class that is contained in a class
 * @author Andrew Branch
 */
-public class Section implements Storable {
+public class Section extends Gradable implements Storable {
 
     private GradebookDB<Student> students;
 
@@ -15,39 +15,10 @@ public class Section implements Storable {
     public Section(GradebookDB<Student> students) {
         this.students = students;
     }
-
-    public final int reportAverageScore() {
-        int average = 0;
-        Student[] allStudents = students.toArray(new Student[1]);
-
-        for (int i = 0; i < allStudents.length; i++) {
-            average += allStudents[i].reportScore();
-        }
-
-        average /= allStudents.length;
-        return average;
-    }
-
-    public final char reportAverageLetterGrade() {
-        int average = 0;
-        Student[] allStudents = students.toArray(new Student[1]);
-        char studentLetterGrade = 0;
-        for (int i = 0; i < allStudents.length; i++) {
-            studentLetterGrade = allStudents[i].reportLetterGrade();
-
-            if (studentLetterGrade == 'F') {
-                studentLetterGrade--;
-            }
-
-            average += studentLetterGrade;
-        }
-
-        average /= allStudents.length;
-        if (average == 'E') {
-            average++;
-        }
-
-        return (char) average;
+    
+    protected Gradable[] getGrades()
+    {
+        return students.toArray(new Student[1]);
     }
 
     public void getStudent(String student) {

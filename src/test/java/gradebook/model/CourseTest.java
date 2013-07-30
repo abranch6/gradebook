@@ -7,13 +7,19 @@ import org.junit.runners.JUnit4;
 
 
 @RunWith(JUnit4.class)
-public class SectionTest
+public class CourseTest
 {
     @Test
     public void testReportAverageScore()
     {
-        Section section = new Section();
- 
+        Course testCourse = new Course("CS", "Test", 1111); 
+        Section section1 = new Section();
+        Section section2 = new Section();
+        Section section3 = new Section();
+        Class testClass1 = new Class();
+        Class testClass2 = new Class();
+        Class testClass3 = new Class();
+
         GradebookCategory tests = new GradebookCategory("Tests", 0.6);
         GradebookCategory homework = new GradebookCategory("Homework", 0.4);
 
@@ -39,17 +45,31 @@ public class SectionTest
         student3.addGradebookItem(new GradebookItem("Homework 2", homework, 100));
         student3.addGradebookItem(new GradebookItem("Homework 3", homework, 100));
 
-        section.addStudent(student1);
-        section.addStudent(student2);
-        section.addStudent(student3);
+        section1.addStudent(student1);
+        section2.addStudent(student2);
+        section3.addStudent(student3);
 
-        assertEquals((int)(((70 * 0.6 + 75 * 0.4) + (80 * 0.6 + 90 * 0.4) + 100) / 3), section.reportScore()); 
+        testClass1.addSection(section1);
+        testClass2.addSection(section2);
+        testClass3.addSection(section3);
+
+        testCourse.addClass(testClass1);
+        testCourse.addClass(testClass2);
+        testCourse.addClass(testClass3);
+
+        assertEquals((int)(((70 * 0.6 + 75 * 0.4) + (80 * 0.6 + 90 * 0.4) + 100) / 3), testCourse.reportScore()); 
     }
 
     @Test
     public void testReportAverageLetterGrade()
     {
-        Section section = new Section();
+        Course testCourse = new Course("CS", "Test", 1111);
+        Section section1 = new Section();
+        Section section2 = new Section();
+        Section section3 = new Section();
+        Class testClass1 = new Class();
+        Class testClass2 = new Class();
+        Class testClass3 = new Class();
 
         GradebookCategory tests = new GradebookCategory("Tests", 0.6);
         GradebookCategory homework = new GradebookCategory("Homework", 0.4);
@@ -76,10 +96,18 @@ public class SectionTest
         student3.addGradebookItem(new GradebookItem("Homework 2", homework, 100));
         student3.addGradebookItem(new GradebookItem("Homework 3", homework, 100));
 
-        section.addStudent(student1);
-        section.addStudent(student2);
-        section.addStudent(student3);
+        section1.addStudent(student1);
+        section2.addStudent(student2);
+        section3.addStudent(student3);
 
-        assertEquals('B', section.reportLetterGrade()); 
+        testClass1.addSection(section1);
+        testClass2.addSection(section2);
+        testClass3.addSection(section3);
+
+        testCourse.addClass(testClass1);
+        testCourse.addClass(testClass2);
+        testCourse.addClass(testClass3);
+
+        assertEquals('B', testCourse.reportLetterGrade());
     }
 }
