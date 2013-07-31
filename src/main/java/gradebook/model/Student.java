@@ -27,11 +27,6 @@ public class Student extends Gradable implements Storable {
         return scheme.calculateLetterGrade(gradebook);
     }
 
-    protected Gradable[] getGrades()
-    {
-        return null;
-    }
-
     public void addGradebookItem(GradebookItem item) {
         gradebook.put(item);
     }

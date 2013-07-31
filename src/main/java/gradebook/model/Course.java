@@ -19,20 +19,18 @@ public class Course extends Gradable implements Storable {
         classes = new ArrayListDB<Class>();
     }
 
-    protected Gradable[] getGrades()
-    {
+    protected Gradable[] getGrades() {
         return classes.toArray(new Class[1]);
     }
-    
+
     public boolean equals(Course that) {
         boolean subjectEquals = subject.equals(that.subject);
         boolean numberEquals = number == that.number;
 
         return  subjectEquals && numberEquals && name.equals(that.name);
     }
-    
-    public void addClass(Class newClass)
-    {
+
+    public void addClass(Class newClass) {
         classes.put(newClass);
     }
 

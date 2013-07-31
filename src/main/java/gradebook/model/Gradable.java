@@ -1,12 +1,14 @@
 package gradebook.model;
 
-/** 
+/**
 * Allows something to be graded
 * @author Andrew Branch
 */
 public abstract class Gradable {
 
-    protected abstract Gradable[] getGrades();
+    protected Gradable[] getGrades() {
+        return null;
+    }
 
     public int reportScore() {
         int average = 0;
@@ -24,10 +26,10 @@ public abstract class Gradable {
         int average = 0;
         char letterGrade = 0;
         Gradable[] grades = getGrades();
-    
+
         for (int i = 0; i < grades.length; i++) {
             letterGrade = grades[i].reportLetterGrade();
-        
+
             if (letterGrade == 'F') {
                 letterGrade--;
             }

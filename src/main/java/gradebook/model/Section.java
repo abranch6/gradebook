@@ -15,9 +15,8 @@ public class Section extends Gradable implements Storable {
     public Section(GradebookDB<Student> students) {
         this.students = students;
     }
-    
-    protected Gradable[] getGrades()
-    {
+
+    protected Gradable[] getGrades() {
         return students.toArray(new Student[1]);
     }
 
